@@ -28,5 +28,14 @@ Analyze Health Conditions
  Analyze sickness
   ?
  Recommend Diet Plan
-  ?
+  if ("obese")
+        recommend more exercise
+        more veggies
+  else if ("Undernourished")
+        balance diet
+        more exercise
+        more fluid
+  else
+        maintain balance diet
+        maintian daily exercise
  
