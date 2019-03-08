@@ -9,6 +9,7 @@ Some features included:
   GUI
   2 packages consist of 4 classes
 
+ALGORITHM
 Ask user what he/she needs help with.
  Sickness
  Healthier Life style
