@@ -48,7 +48,7 @@ public class BankAccount
 {
 	public static void main (String [] args) 
 	{
-		//Define variables
+		//Define variables ,,,,,,,
 		String name, address, city, state, ssn;
 		int zip;
 		double money, deposit, withdraw1st, withdraw2nd, balance;
