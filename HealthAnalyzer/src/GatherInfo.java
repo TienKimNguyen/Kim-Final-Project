@@ -67,10 +67,10 @@ public class GatherInfo {
 	@Override
 	public String toString() {
 		return "Patient Information:"
-				+ "\n\tFirstname: " + firstName 
-				+ "\n\tLastname: " + lastName 
-				+ "\n\tAge: " + age 
-				+ "\n\tAddress: " + address 
+				+ "\n\t*Firstname: " + firstName 
+				+ "\n\t*Lastname: " + lastName 
+				+ "\n\t*Age: " + age 
+				+ "\n\t*Address: " + address 
 				+ ", " + city + ", " + state + ", " + zipcode;
 	}
 	
