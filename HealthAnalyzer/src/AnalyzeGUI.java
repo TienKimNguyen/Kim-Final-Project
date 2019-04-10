@@ -13,6 +13,7 @@ public class AnalyzeGUI extends JFrame{
 	//Panels
 	private JPanel topPanel = new JPanel();
 	private JPanel bottomPanel = new JPanel();
+	private JPanel consolePanel = new JPanel();
 	
 	//Labels
 	private JLabel firstNameLbl = new JLabel("First Name");
@@ -82,4 +83,5 @@ public class AnalyzeGUI extends JFrame{
 		// TODO Auto-generated method stub
 		
 	}
+	
 }
