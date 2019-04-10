@@ -1,4 +1,6 @@
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.LayoutManager;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -11,8 +13,12 @@ import javax.swing.JTextField;
 
 public class AnalyzeGUI extends JFrame{
 	//Panels
-	private JPanel topPanel = new JPanel();
-	private JPanel bottomPanel = new JPanel();
+	private JPanel firstPanel = new JPanel();
+	private JPanel secondPanel = new JPanel();
+	private JPanel thirdPanel = new JPanel();
+	private JPanel forthPanel = new JPanel();
+	private JPanel fifthPanel = new JPanel();
+	private JPanel sixthPanel = new JPanel();
 	private JPanel consolePanel = new JPanel();
 	
 	//Labels
@@ -71,7 +77,7 @@ public class AnalyzeGUI extends JFrame{
 	
 	public AnalyzeGUI(String title) {
 		super(title);
-		setSize(500,350); //set size of frame
+		setSize(500,500); //set size of frame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
@@ -79,6 +85,84 @@ public class AnalyzeGUI extends JFrame{
 		setVisible(true);
 	}
 
+	public void buildFirstPanel() {
+		firstPanel.setLayout(new GridLayout(1,4));
+		
+		firstPanel.add(firstNameLbl);
+		firstPanel.add(firstNameTxt);
+		
+		firstPanel.add(lastNameLbl);
+		firstPanel.add(lastNameTxt);
+	}
+	
+	public void buildSecondPanel() {
+		secondPanel.setLayout(new GridLayout(3,6));
+		
+		secondPanel.add(birthLbl);
+		for (int i = 0; i < 5; i++) {
+			secondPanel.add(new JLabel());
+		}
+		secondPanel.add(birthDayLbl);
+		secondPanel.add(dayBox);
+		
+		secondPanel.add(birthMonthLbl);
+		secondPanel.add(monthBox);
+		
+		secondPanel.add(birthYearLbl);
+		secondPanel.add(yearTxt);
+		
+		secondPanel.add(genderLbl);
+		
+		secondPanel.add(maleLbl);
+		secondPanel.add(maleCheck);
+		
+		secondPanel.add(femaleLbl);
+		secondPanel.add(femaleCheck);
+		
+		secondPanel.add(new JLabel());
+	}
+	
+	public void buildThirdPanel() {
+		thirdPanel.setLayout( new GridLayout (3,4));
+		
+		thirdPanel.add(addressLbl);
+		thirdPanel.add(addressTxt);
+		
+		thirdPanel.add(cityLbl);
+		thirdPanel.add(cityTxt);
+		
+		thirdPanel.add(stateLbl);
+		thirdPanel.add(stateTxt);
+		
+		thirdPanel.add(zipLbl);
+		thirdPanel.add(zipTxt);
+		
+		thirdPanel.add(phoneLbl);
+		thirdPanel.add(phoneTxt);
+		
+		thirdPanel.add(new JLabel());
+		thirdPanel.add(new JLabel());
+	}
+	
+	public void buildForthPanel() {
+		forthPanel.setLayout( new GridLayout (2,5));
+		
+		forthPanel.add(heightLbl);
+		
+		forthPanel.add(ftTxt);
+		forthPanel.add(ftLbl);
+		
+		forthPanel.add(inTxt);
+		forthPanel.add(inLbl);
+		
+		forthPanel.add(weightLbl);
+		
+		forthPanel.add(poundTxt);
+		forthPanel.add(poundLbl);
+		
+		forthPanel.add(new JLabel());
+		forthPanel.add(new JLabel());
+	}
 	private void setActionCommand() {
 		// TODO Auto-generated method stub
 		
