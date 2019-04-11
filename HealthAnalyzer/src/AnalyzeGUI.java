@@ -1,6 +1,8 @@
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -11,15 +13,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class AnalyzeGUI extends JFrame{
+public class AnalyzeGUI extends JFrame implements ActionListener{
 	//Panels
 	private JPanel firstPanel = new JPanel();
 	private JPanel secondPanel = new JPanel();
 	private JPanel thirdPanel = new JPanel();
 	private JPanel forthPanel = new JPanel();
 	private JPanel fifthPanel = new JPanel();
-	private JPanel sixthPanel = new JPanel();
-	private JPanel consolePanel = new JPanel();
+	private JPanel bigTopPanel = new JPanel();
+	private JPanel bigBottomPanel = new JPanel();
 	
 	//Labels
 	private JLabel firstNameLbl = new JLabel("First Name");
@@ -45,7 +47,7 @@ public class AnalyzeGUI extends JFrame{
 	//Buttons
 	private JButton continueBtn = new JButton("Continue");
 	private JButton cancelBtn = new JButton("Continue");
-	private JButton nextBtn = new JButton("Next");
+	private JButton resetBtn = new JButton("Reset");
 	private JButton enterBtn = new JButton("Enter");
 	
 	//Textfields
@@ -79,8 +81,15 @@ public class AnalyzeGUI extends JFrame{
 		super(title);
 		setSize(500,500); //set size of frame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		
+		buildFirstPanel();
+		buildSecondPanel();
+		buildThirdPanel();
+		buildForthPanel();
+		buildFifthPanel();
+		bigTopPanel();
+		bigBottomPanel();
+		add(bigTopPanel, BorderLayout.CENTER);
+		add(bigBottomPanel, BorderLayout.SOUTH);
 		setActionCommand();
 		setVisible(true);
 	}
@@ -163,7 +172,35 @@ public class AnalyzeGUI extends JFrame{
 		forthPanel.add(new JLabel());
 		forthPanel.add(new JLabel());
 	}
+	
+	public void buildFifthPanel() {
+		fifthPanel.setLayout(new FlowLayout());
+		
+		fifthPanel.add(enterBtn);
+		fifthPanel.add(resetBtn);
+	}
+	
+	public void bigTopPanel() {
+		bigTopPanel.setLayout(new BorderLayout());
+		bigTopPanel.add(firstPanel, BorderLayout.NORTH);
+		bigTopPanel.add(secondPanel, BorderLayout.CENTER);
+		bigTopPanel.add(thirdPanel, BorderLayout.SOUTH);
+	}
+	
+	public void bigBottomPanel() {
+		bigBottomPanel.setLayout(new BorderLayout());
+		bigTopPanel.add(forthPanel, BorderLayout.NORTH);
+		bigTopPanel.add(fifthPanel, BorderLayout.CENTER);
+		bigTopPanel.add(console, BorderLayout.SOUTH);
+	}
+	
 	private void setActionCommand() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
