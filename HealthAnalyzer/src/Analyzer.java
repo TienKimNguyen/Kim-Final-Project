@@ -12,11 +12,11 @@ public class Analyzer extends GatherInfo {
 		if (this.bmi <= 19) {
 			statement = "You're considered underweight";
 		}
-		else if (this.bmi >19 && this.bmi <25 )
+		else if (this.bmi > 19 && this.bmi < 25 )
 		{
 			statement = "You're in the healthy range";
 		}
-		else if (this.bmi >= 25 && this.bmi <30) {
+		else if (this.bmi >= 25 && this.bmi < 30) {
 			statement = "You're considered overweight";
 		}
 		else
