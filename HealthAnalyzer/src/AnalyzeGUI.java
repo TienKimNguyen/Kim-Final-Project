@@ -51,7 +51,6 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 	private JButton enterBtn = new JButton("Enter");
 	
 	
-	
 	//Textfields
 	private JTextField firstNameTxt = new JTextField(10);
 	private JTextField lastNameTxt = new JTextField(10);
