@@ -195,14 +195,36 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 	}
 	
 	private void setActionCommand() {
-		// TODO Auto-generated method stub
+		continueBtn.addActionListener(this);
+		continueBtn.setActionCommand("Continue");
 		
+		cancelBtn.addActionListener(this);
+		cancelBtn.setActionCommand("Cancel");
+		
+		resetBtn.addActionListener(this);
+		resetBtn.setActionCommand("Reset");
+		bigBottomPanel.add(resetBtn);
+		
+		enterBtn.addActionListener(this);
+		enterBtn.setActionCommand("Enter");
+		bigBottomPanel.add(enterBtn);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		String action = e.getActionCommand();
+		if (action.equals("Continue")) {
+			
+		}
+		else if (action.equals("Cancel")) {
+			System.exit(0);
+		}
+		else if (action.equals("Reset")) {
+			console.setText("");
+		}
+		else if (action.equals("Enter")) {
+			
+		}
 	}
 	
 }
