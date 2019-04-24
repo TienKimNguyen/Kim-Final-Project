@@ -26,5 +26,10 @@ public class Analyzer extends GatherInfo {
 		return statement;
 	}
 	
-	
+	public String toString() {
+		String info = "";
+		info = super.toString() + "\n\nHealth Information\n" +
+				height ;
+		return info;
+	}
 }
