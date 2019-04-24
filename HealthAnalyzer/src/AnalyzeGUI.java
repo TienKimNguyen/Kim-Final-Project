@@ -43,7 +43,6 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 	private JLabel inLbl = new JLabel("in.");
 	private JLabel weightLbl = new JLabel("Weight");
 	private JLabel poundLbl = new JLabel("pound");
-
 	
 	//Buttons
 	private JButton continueBtn = new JButton("Continue");

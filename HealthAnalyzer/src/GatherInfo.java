@@ -74,6 +74,4 @@ public class GatherInfo {
 				+ ", " + city + ", " + state + ", " + zipcode;
 	}
 	
-	
-	
 }
