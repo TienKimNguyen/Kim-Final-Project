@@ -26,4 +26,5 @@ public class Analyzer extends GatherInfo {
 		return statement;
 	}
 	
+	
 }
