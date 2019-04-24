@@ -227,4 +227,7 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 		}
 	}
 	
+	public static void main(String[] args) {
+		AnalyzeGUI frame = new AnalyzeGUI("BMI Analyzer");
+	}
 }
