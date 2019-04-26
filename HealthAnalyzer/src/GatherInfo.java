@@ -73,7 +73,4 @@ public class GatherInfo {
 				+ "\n\tAddress: " + address 
 				+ ", " + city + ", " + state + ", " + zipcode;
 	}
-	
-	
-	
 }
