@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.TitledBorder;
 
+import InfoProcessor.Analyzer;
 import InfoProcessor.Patient; //import method from another package
 
 @SuppressWarnings("serial")
@@ -93,6 +94,7 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 	private Patient[] patients = new Patient[1000];
 	private int patientCount;
 	private Patient patient;
+	private Analyzer analyzer;
 	
 	//Constructor used to create a frame
 	public AnalyzeGUI(String title) {
@@ -148,9 +150,12 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 			
 	}
 	
+	//Build second panel
 	public void buildSecondPanel() {
+		//Set the layout to gridLayout with 5 rows and 6 columns
 		secondPanel.setLayout(new GridLayout(5,6));
 		
+		//Add components to panel
 		secondPanel.add(birthLbl);
 		
 		for (int i = 0; i < 5; i++) {
@@ -195,29 +200,39 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 		}
 	}
 	
+	//Build third panel
 	public void buildThirdPanel() {
-		console.setEditable(false);
+		console.setEditable(false); //set textarea uneditable
 		console.setBorder(null);
 		
-		thirdPanel.setBorder(consoleBorder);
-		thirdPanel.add(consoleScroll);
+		thirdPanel.setBorder(consoleBorder); //Set titledBorder for panel
+		thirdPanel.add(consoleScroll); //add the scrollPane to panel
 	}
+	
+	//Build forth panel
 	public void buildForthPanel() {
+		//set layout to flowLayout
 		forthPanel.setLayout(new FlowLayout());
 		
+		//add components to panel
 		forthPanel.add(enterBtn);
 		forthPanel.add(resetBtn);
 		forthPanel.add(closeBtn);
 	}
 	
+	//Build the big top panel
+	//it consists of first and second panel
 	public void bigTopPanel() {
+		//Use gridLayout with 2 rows and 1 column
 		bigTopPanel.setLayout(new GridLayout(2,1));
 		bigTopPanel.setBorder(patientBorder);
 		
+		//add components to panel
 		bigTopPanel.add(firstPanel);
 		bigTopPanel.add(secondPanel);
 	}
 	
+	//Method to set action command to each button
 	private void setActionCommand() {
 		resetBtn.addActionListener(this);
 		resetBtn.setActionCommand("Reset");
@@ -229,6 +244,7 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 		closeBtn.setActionCommand("Close");
 	}
 	
+	//Method to check the validation of inputs
 	public boolean checkValidOfNumberInput() {
 		int length = String.valueOf(zipTxt.getText().trim()).length(); //Calculate the length of zipcode
 		int year = Calendar.getInstance().get(Calendar.YEAR); //get the current year
@@ -244,64 +260,74 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 		//Check if number has 5 digits
 		if (length != 5)
 		{
-			console.append("\nZipcode must have 5 digits!");
+			console.append("\nZipcode must have 5 digits!"); //display error message
 		}
 		else {
-			check1 = true;
+			check1 = true; //change the flag to true
 		}
 
-		String phone = phoneTxt.getText().trim();
-		int phoneLength = phone.length();
+		String phone = phoneTxt.getText().trim(); //get the phone number
+		int phoneLength = phone.length(); //calculate the length of phone number
+		
 		//Declare variables and initialize value of 3th and 6th character to them
 		char symbol1 = phone.charAt(3), 
 			 symbol2 = phone.charAt(6);
 		
-		//Check if the 3th and 6th character of input is '-'
+		//Check if phone number input has 12 characters including 2 "-"
 		if (phoneLength == 12) {
+			//Check if the 3th and 6th character of input is '-'
 			if (symbol1 != '-' && symbol2 != '-')
 			{
+				//display thr error message to console
 				console.append("\nPhone number must follow this format: 123-456-7890");
 			}
 			else {
-				check2 = true;
+				check2 = true; //change the flag to true
 			}
 		}
 		else
 			console.append("\nInvalid phone number!");
-			check1 = false;
+			check1 = false; //maintain flag to false
 		
+		//get value from input of components
+		//parse to proper primitive types
 		int feet = Integer.parseInt(ftTxt.getText().trim());
 		int inch = Integer.parseInt(inTxt.getText().trim());
 		double pound = Double.parseDouble(poundTxt.getText().trim());
 		
+		//check if height in feet is negative
 		if (feet < 0) {
 			console.append("\nHeight in feet cannot be negative!");
 		}
 		else {
-			check3 = true;
+			check3 = true; //change flag to true
 		}
 		
+		//check if height in inch is negative
 		if (inch < 0) {
 			console.append("\nHeight in inch cannot be negative!");
 		}
 		else {
-			check4 = true;
+			check4 = true; //change flag to true
 		}
 		
+		//check if weight is negative
 		if (pound < 0) {
 			console.append("\nWeight cannot be negative!");
 		}
 		else {
-			check5= true;
+			check5= true; //change flag to true
 		}
 		
+		//check if year of birth is greater than current year
 		if (Integer.parseInt(yearTxt.getText().trim()) > year) {
 			console.append("\nInvalid year of birth!");
 		}
 		else {
-			check6 = true;
+			check6 = true; //change flag to true
 		}
 		
+		//If all flags are true, return true
 		if (check1 == true && check2 == true && check3 == true
 				&& check4 == true && check5 == true && check6 == true) {
 			return check = true;
@@ -314,6 +340,7 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 	
 	public void getInfo() {
 		try {
+			//check if any input is left blank
 			if(firstNameTxt.getText().trim().equals("") || 
 					lastNameTxt.getText().trim().equals("") ||
 					addressTxt.getText().trim().equals("") ||
@@ -331,19 +358,22 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 			else if (checkValidOfNumberInput() == true) {
 				String sex = "";
 				boolean checked = maleCheck.isSelected();
+				//if male box is checked, sex is male. otherwise, sex is female
 				if (checked) {
 					sex = "Male";
 				}
 				else {
 					sex = "Female";
 				}
+				//create a Patient object and pass arguments to constructor
+				analyzer = new Analyzer(Integer.parseInt(ftTxt.getText().trim()), Integer.parseInt(inTxt.getText().trim()),
+						Double.parseDouble(poundTxt.getText().trim()));
 				patient = new Patient(firstNameTxt.getText().trim(), lastNameTxt.getText().trim(),
 						addressTxt.getText().trim(), cityTxt.getText().trim(),stateTxt.getText().trim(),
 						zipTxt.getText().trim(), phoneTxt.getText().trim(), (int) dayBox.getSelectedItem(),
 						(int) monthBox.getSelectedItem(), Integer.parseInt(yearTxt.getText().trim()),
-						sex, Integer.parseInt(ftTxt.getText().trim()), Integer.parseInt(inTxt.getText().trim()),
-						Double.parseDouble(poundTxt.getText().trim()));
-				patients[patientCount++] = patient;
+						sex, analyzer);
+				patients[patientCount++] = patient; //add patient to array
 			}
 		}catch (Exception e) {
 			System.out.println("Invalid input!");
@@ -351,16 +381,20 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 		}
 	}
 
+	//Perfrom action selected
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String action = e.getActionCommand();
+		//if user chooses reset, set the textarea to blank
 		if (action.equals("Reset")) {
 			console.setText("");
 		}
+		//If user chooses enter, call the getInfo() method to execute and display patient's information
 		else if (action.equals("Enter")) {
 			getInfo();
 			console.append(patient.toString());
 		}
+		//If user chooses close, close the program
 		else if (action.equals("Close")) {
 			System.exit(0);
 		}

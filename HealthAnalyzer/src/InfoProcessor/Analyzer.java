@@ -1,5 +1,7 @@
 package InfoProcessor;
 
+//Analyzer class is used to create an object consisting of weight and height measurements of a patient
+//It also calculates the BMI by those figures and shows the results and recommendations
 public class Analyzer {
 	private int heightFt;
 	private int heightIn;
@@ -13,8 +15,9 @@ public class Analyzer {
 		calculateBMI(weight,heightFt, heightIn);
 	}
 
+	//Method to calculate the BMI of patient
 	public void calculateBMI(double w, int hFT, int hIN) {
-		int h = hFT * 12 + hIN;
+		int h = hFT * 12 + hIN; //BMI format
 		this.bmi = (w / (h * h)) * 705; // in inches
 	}
 	
@@ -50,6 +53,7 @@ public class Analyzer {
 		this.bmi = bmi;
 	}
 	
+	//Method to analyze the BMI and give proper recommendations
 	public String analyzer() {
 		String statement = "";
 		if (this.bmi <= 19) {
@@ -74,6 +78,7 @@ public class Analyzer {
 		return statement;
 	}
 
+	//toString method formats the message displayed on screen
 	@Override
 	public String toString() {
 		String BMIFormat = String.format("%.2f", bmi);

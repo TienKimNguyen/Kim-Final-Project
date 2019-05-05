@@ -3,7 +3,7 @@ package InfoProcessor;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Patient extends Analyzer{
+public class Patient{
 	private String firstName;
 	private String lastName;
 	private String address;
@@ -16,11 +16,12 @@ public class Patient extends Analyzer{
 	private int birthYear;
 	private String sex;
 	private Date date = new Date();
+	private Analyzer analyzer;
 
 	public Patient(String firstName, String lastName, String address, String city,
 			String state, String zip, String phone, int day, int month, int year,
-			String sex, int heightFt, int heightIn, double weight) {
-		super(heightFt, heightIn, weight);
+			String sex, Analyzer analyzer) {
+		this.analyzer = analyzer;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -34,6 +35,14 @@ public class Patient extends Analyzer{
 		this.sex = sex;
 	}
 	
+	public Analyzer getAnalyzer() {
+		return analyzer;
+	}
+
+	public void setAnalyzer(Analyzer analyzer) {
+		this.analyzer = analyzer;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -116,7 +125,7 @@ public class Patient extends Analyzer{
 				+ "\nBirthdate: " + birthMonth + "/" + birthDay + "/" + birthYear
 				+"\nGender: " + sex
 				+ "\nAddress: " + address + ", " + city + ", " + state + ", " + zip
-				+ "\nPhone Number: " + phone + "\n" + super.toString()
+				+ "\nPhone Number: " + phone + "\n" + analyzer.toString()
 				+ "\n\nDate visited: " + getDate() + "\nThank you for using our service!";
 		return info;
 	}
