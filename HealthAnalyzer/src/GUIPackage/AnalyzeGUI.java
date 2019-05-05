@@ -405,7 +405,7 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 			e.toString();
 		}
 	}
-
+	
 	//Perfrom action selected
 	@Override
 	public void actionPerformed(ActionEvent e) {
