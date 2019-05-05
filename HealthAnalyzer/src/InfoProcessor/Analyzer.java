@@ -1,7 +1,9 @@
 package InfoProcessor;
 
-//Analyzer class is used to create an object consisting of weight and height measurements of a patient
-//It also calculates the BMI by those figures and shows the results and recommendations
+/*
+ * Analyzer class is used to create an object consisting of weight and height measurements of a patient
+ * It also calculates the BMI by those figures and shows the results and recommendations
+*/
 public class Analyzer {
 	private int heightFt;
 	private int heightIn;

@@ -1,3 +1,7 @@
+/*
+ * InfoProcessor is used to create a patient with information
+ * It also displays the information of the patient
+ */
 package InfoProcessor;
 
 import java.text.SimpleDateFormat;
@@ -18,6 +22,7 @@ public class Patient{
 	private Date date = new Date();
 	private Analyzer analyzer;
 
+	//Constructor receives arguments passed
 	public Patient(String firstName, String lastName, String address, String city,
 			String state, String zip, String phone, int day, int month, int year,
 			String sex, Analyzer analyzer) {
@@ -35,6 +40,7 @@ public class Patient{
 		this.sex = sex;
 	}
 	
+	//Setters and getters
 	public Analyzer getAnalyzer() {
 		return analyzer;
 	}
@@ -109,6 +115,8 @@ public class Patient{
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
+	
+	//Get the current date and time
 	public String getDate() {
 		SimpleDateFormat visitDate = new SimpleDateFormat("MMM dd, yyyy h:mm:ss a");
 		String result = visitDate.format(date);
@@ -118,6 +126,7 @@ public class Patient{
 		this.date = date;
 	}
 
+	//return patient's information
 	public String toString() {
 		String info = "";
 		info = "PATIENT INFORMATION\n----------------------------------"

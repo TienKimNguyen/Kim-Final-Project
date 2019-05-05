@@ -1,3 +1,28 @@
+/*
+ Define components, array of patients, and analyzer object
+ Methods to build 4 panels usinf grid and flow layout
+ Method to set action command to buttons
+ Method to perform those commands
+ 	if click "enter"
+ 		executive getInfo()
+ 		display patient's information to screen
+ 	else if click "reset"
+ 		set the console to blank
+ 	else if click "close"
+ 		exit the program
+ Method to check validation of inputs
+ 	check for the validation of inputs of birth year, height, weight, phone number, and zipcode
+ 	set a flag for each of checking
+ 	if all flags are true
+ 		return true
+ 	else
+ 		return false
+ Method to get information from patient
+ 	check if any input is missing or blank
+ 	get the value of checking box from gender field
+ 	if the validation checking is true
+ 		create a Patient object and pass all arguments to constructor
+ */
 package GUIPackage;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
