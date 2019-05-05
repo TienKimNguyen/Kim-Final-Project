@@ -116,9 +116,12 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 		setVisible(true); // set the frame visible
 	}
 
+	//Build first panel
 	public void buildFirstPanel() {
+		//Set the layout to gridLayout with 4 rows and 4 columns
 		firstPanel.setLayout(new GridLayout(4,4));
 		
+		//Add components to panel respectively
 		firstPanel.add(firstNameLbl);
 		firstPanel.add(firstNameTxt);
 		
