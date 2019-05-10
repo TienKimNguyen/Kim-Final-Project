@@ -329,16 +329,16 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 		}
 		
 		//check if height in inch is negative
-		if (inch < 0) {
-			console.append("\nHeight in inch cannot be negative!");
+		if (inch <= 0) {
+			console.append("\nHeight in inch cannot be negative or 0!");
 		}
 		else {
 			check4 = true; //change flag to true
 		}
 		
 		//check if weight is negative
-		if (pound < 0) {
-			console.append("\nWeight cannot be negative!");
+		if (pound <= 0) {
+			console.append("\nWeight cannot be negative or 0!");
 		}
 		else {
 			check5= true; //change flag to true
