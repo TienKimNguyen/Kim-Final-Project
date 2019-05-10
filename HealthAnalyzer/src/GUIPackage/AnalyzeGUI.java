@@ -413,6 +413,19 @@ public class AnalyzeGUI extends JFrame implements ActionListener{
 		//if user chooses reset, set the textarea to blank
 		if (action.equals("Reset")) {
 			console.setText("");
+			firstNameTxt.setText("");
+			lastNameTxt.setText("");
+			yearTxt.setText("");
+			addressTxt.setText("");
+			cityTxt.setText("");
+			stateTxt.setText("");
+			zipTxt .setText("");
+			phoneTxt.setText("");
+			ftTxt.setText("");
+			inTxt.setText("");
+			poundTxt.setText("");
+			maleCheck.setSelected(false);
+			femaleCheck.setSelected(false);
 		}
 		//If user chooses enter, call the getInfo() method to execute and display patient's information
 		else if (action.equals("Enter")) {
